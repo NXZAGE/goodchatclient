@@ -223,6 +223,7 @@ export default {
 			s.innerHTML = addImageCodeFragment;
 			document.body.appendChild(s);
 		}
+		let dt = new DataTransfer();
 	},
 }
 </script>
