@@ -83,7 +83,6 @@ import { addImageCodeFragment } from "@/utils/ImgAdd.js";
 import jQuery from "jquery";
 const $ = jQuery;
 window.$ = $;
-let dt = new DataTransfer();
 
 export default {
 	components: {
@@ -181,7 +180,7 @@ export default {
 			);
 		},
 		open: function (event) {
-			dt = new DataTransfer();
+			let dt = new DataTransfer();
 			let $files_list = $(document.getElementById("id_photo")).closest('.input-file').next();
 			$files_list.empty();
 			for (let i = 0; i < 1; i++) {
