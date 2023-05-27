@@ -25,22 +25,24 @@ $axios.interceptors.response.use(
   async (error) => {
     const config = error.config;
 
-    if (error.response.status === 401 && !config.sent) {
-      config.sent = true;
-      const result = await TokenManager.refreshToken().then((result) => result);
+    if (error.response) {
+      if (error.response.status === 401 && !config.sent) {
+        config.sent = true;
+        const result = await TokenManager.refreshToken().then((result) => result);
 
-      if (result.access) {
-        config.headers = {
-          ...config.headers,
-          Authorization: `Bearer ${result.access}`,
-        };
-      } else {
-        TokenManager.removeToken();
-        UserManager.removeUser();
-        location.reload(true);
+        if (result.access) {
+          config.headers = {
+            ...config.headers,
+            Authorization: `Bearer ${result.access}`,
+          };
+        } else {
+          TokenManager.removeToken();
+          UserManager.removeUser();
+          location.reload(true);
+        }
+
+        return $axios(config);
       }
-
-      return $axios(config);
     }
 
     return Promise.reject(error);
