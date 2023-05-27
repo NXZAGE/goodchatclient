@@ -17,7 +17,7 @@
               <div id="input-list" class="input-file-list" style="margin: 0px auto;">
                 <div class="input-file-list-item">
                   <a href="#" onclick="removeFilesItem(this); return false;" class="input-file-list-remove">x</a>
-                  <img class="input-file-list-img" :src="$store.getters['auth/user'].avatar">
+                  <img style = "height: 10vw; border-radius: 100%; aspect-ratio: 1/1; object-fit: cover; " class="input-file-list-img" :src="$store.getters['auth/user'].avatar">
                 </div>
               </div>
             </div>
@@ -300,13 +300,6 @@ export default {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-}
-
-.input-file-list-img {
-	height: 10vw;
-	border-radius: 100%;
-	aspect-ratio: 1/1;
-	object-fit: cover;
 }
 
 .input-file-list-name {
