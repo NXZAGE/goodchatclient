@@ -7,7 +7,7 @@
 		<form id="new-post-form" class="form-add-post" enctype="multipart/form-data">
 			<textarea name="content" cols="40" rows="10" class="text-of-new-post" placeholder="Your text" required=""
 				id="id_content" v-model="content"></textarea>
-			<div v-if=!HaveImg class="input-file-row" id="box-img">
+			<div v-if=!isEdit class="input-file-row" id="box-img">
 				<label class="input-file" id="add_btn" @change="open($event)">
 					<input type="file" name="photo" accept="image/*" id="id_photo">
 					<span>Add an Image</span>
@@ -129,6 +129,7 @@ export default {
 			s.innerHTML = addImageCodeFragment;
 			document.body.appendChild(s);
 		}
+		console.log(document.getElementsByClassName[0])
 		let dt = new DataTransfer();
 	},
 }
