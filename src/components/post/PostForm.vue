@@ -121,6 +121,9 @@ export default {
 		},
 	},
 	mounted() {
+		if (!this.isEdit && document.getElementsByClassName(".input-file-list-item").length!= 0){
+			document.getElementsByClassName(".input-file-list-item")[0].remove();
+		}
 		if (document.body.getElementsByTagName("script").length == 0) {
 			let tag = document.createElement("script");
 			tag.setAttribute("src", "https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js");
@@ -129,7 +132,6 @@ export default {
 			s.innerHTML = addImageCodeFragment;
 			document.body.appendChild(s);
 		}
-		console.log(document.getElementsByClassName[0])
 		let dt = new DataTransfer();
 	},
 }
