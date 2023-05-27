@@ -121,8 +121,11 @@ export default {
 		},
 	},
 	mounted() {
+		console.log(this.isEdit);
+		console.log(document.getElementsByClassName(".input-file-list-item").length);
 		if (!this.isEdit && document.getElementsByClassName(".input-file-list-item").length!= 0){
 			document.getElementsByClassName(".input-file-list-item")[0].remove();
+			console.log(1);
 		}
 		if (document.body.getElementsByTagName("script").length == 0) {
 			let tag = document.createElement("script");
