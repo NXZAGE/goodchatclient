@@ -5,7 +5,7 @@ import UserManager from "@/managers/UserManager";
 
 const $axios = axios.create({
   baseURL: "https://goodchat.pythonanywhere.com/api/",
-  timeout: 1000,
+  timeout: 1500,
 });
 
 $axios.interceptors.request.use(
