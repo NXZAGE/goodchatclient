@@ -35,11 +35,21 @@ export default {
       }).then(
         response => this.chat.messages.push(response)
       )
+      function Start() {
+        document.getElementById("messenger_box").scrollTop = document.getElementById("messenger_box").scrollHeight;
+      }
+      setTimeout(Start, 400);
+      document.title = "chat";
     },
     loadChat() {
       this.$store.dispatch('chat/getChat', { id: this.id }).then(
         response => this.chat = response
       );
+      function Start() {
+        document.getElementById("messenger_box").scrollTop = document.getElementById("messenger_box").scrollHeight;
+      }
+      setTimeout(Start, 400);
+      document.title = "chat";
     },
   },
   created() {
